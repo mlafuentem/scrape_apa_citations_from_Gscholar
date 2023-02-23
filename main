@@ -1,0 +1,21 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+url = "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=478108251115789012" #here you put the Google Scholar adress of the citations of your test
+
+driver = webdriver.Chrome()
+driver.get(url)
+
+list_of_citations= []
+
+citations = driver.find_elements(By.CLASS_NAME, "gs_or_cit")
+for citation in citations:
+    driver.execute_script("arguments[0].click();", citation)
+    time.sleep(1)
+    cits= driver.find_elements(By.CLASS_NAME, "gs_citr")
+    cit= cits[1]
+    list_of_citations.append(cit.text)
+
+print(list_of_citations)
+driver.quit()
