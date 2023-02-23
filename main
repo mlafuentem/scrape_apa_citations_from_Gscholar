@@ -2,7 +2,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-url = "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=478108251115789012" #here you put the Google Scholar adress of the citations of your test
+url = "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=478108251115789012" #here you put the Google Scholar url of the page where you have all the citations of your test
 
 driver = webdriver.Chrome()
 driver.get(url)
